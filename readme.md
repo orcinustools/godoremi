@@ -12,3 +12,5 @@ git clone git@github.com:imamdigmi/godoremi.git
 ```
 go run main.go
 ```
+
+3. Browse to [http://localhost:8080/](http://localhost:8080/)
