@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"io"
+	"io/ioutil"
 	"net"
 	"net/http"
 	"os"
@@ -11,14 +11,23 @@ import (
 const sock = "/var/run/docker.sock"
 
 func main() {
-	tr := &http.Transport{
-		Dial: fakeDial,
-	}
-	client := &http.Client{Transport: tr}
-	resp, err := client.Get("http://localhost/images/json")
-	dieIf(err)
-	io.Copy(os.Stdout, resp.Body)
-	resp.Body.Close()
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "application/json")
+		tr := &http.Transport{
+			Dial: fakeDial,
+		}
+		client := &http.Client{Transport: tr}
+		resp, err := client.Get("http://localhost/info")
+		dieIf(err)
+		body, err := ioutil.ReadAll(resp.Body)
+		if err != nil {
+			panic(err.Error())
+		}
+		w.Write(body)
+		resp.Body.Close()
+	})
+	fmt.Println("starting web server at http://localhost:8080/")
+	http.ListenAndServe(":8080", nil)
 }
 
 func dieIf(err error) {
