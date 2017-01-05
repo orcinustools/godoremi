@@ -17,7 +17,16 @@ func main() {
 			Dial: fakeDial,
 		}
 		client := &http.Client{Transport: tr}
-		resp, err := client.Get("http://localhost/info")
+		var req string
+		switch r.URL.Path {
+		case "/":
+			req = "info"
+		case "/images":
+			req = "images/json"
+		case "/containers":
+			req = "containers/json"
+		}
+		resp, err := client.Get("http://localhost/" + req)
 		dieIf(err)
 		body, err := ioutil.ReadAll(resp.Body)
 		if err != nil {
