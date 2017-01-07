@@ -4,7 +4,7 @@
     "description": "Golang daemon for docker remote API",
     "http": {
         "listen": "localhost",
-        "port": "9977"
+        "port": "8080"
     },
     "upstream": {
         "unixSocket":{
