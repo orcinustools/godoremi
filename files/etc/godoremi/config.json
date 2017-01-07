@@ -7,13 +7,6 @@
         "port": "9977"
     },
     "upstream": {
-        "http": {
-            "docker": {
-                "address": "localhost",
-                "port": "",
-                "schema": "http://"
-            }
-        },
         "unixSocket":{
             "docker": {
                 "fileDescriptor": "/var/run/docker.sock"

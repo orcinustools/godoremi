@@ -1,14 +1,14 @@
 package service
 
-import (
-	"github.com/wejick/tego/config"
-)
+import "github.com/wejick/tego/config"
 
-var dockerSocket string
+var (
+	dockerSocket string
+)
 
 //Initialize initiates service
 func Initialize() (err error) {
-	dockerSocket = config.Get().Upstream.HTTP["docker"].GetURL()
+	dockerSocket = config.Get().Upstream.UnixSocket["docker"].FileDescriptor
 
 	return
 }

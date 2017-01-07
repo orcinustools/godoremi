@@ -41,7 +41,7 @@ func HTTPGetImages(writer http.ResponseWriter, r *http.Request, ps httprouter.Pa
 		Transport: tr,
 	}
 
-	resp, err := client.Get("http://localhost/images")
+	resp, err := client.Get("http://localhost/images/json")
 	if err != nil {
 		tegoHttp.ResponseJSONCode(writer, "sorry bro", 500)
 		log.Println(err)
@@ -61,7 +61,7 @@ func HTTPGetContainers(writer http.ResponseWriter, r *http.Request, ps httproute
 		Transport: tr,
 	}
 
-	resp, err := client.Get("http://localhost/containers")
+	resp, err := client.Get("http://localhost/containers/json")
 	if err != nil {
 		tegoHttp.ResponseJSONCode(writer, "sorry bro", 500)
 		log.Println(err)
