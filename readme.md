@@ -5,7 +5,7 @@ Do not forget to give criticism and advices, clone and contribute! :)
 ### Build and run
 1. Get
     ```
-    go get -uv github.com:orcinustools/godoremi
+    go get -u -v github.com:orcinustools/godoremi
     ```
 2. Build app
     ```
