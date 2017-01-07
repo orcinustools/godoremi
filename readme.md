@@ -13,7 +13,7 @@ Do not forget to give criticism and advices, clone and contribute! :)
     ```
 3. Install it
     ```
-    sudo ./godoremi install
+    make install
     ```
 4. Then start it with systemd
     ```

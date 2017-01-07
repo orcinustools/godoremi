@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"net/http"
 	"os"
 
@@ -55,6 +56,10 @@ func main() {
 	if err != nil {
 		log.Fatalln("Coudln't initialize daemon", err)
 	}
+
+	flag.Parse()
+
+	daemon.Manage()
 
 	err = service.Initialize()
 	if err != nil {
