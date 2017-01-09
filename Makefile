@@ -2,7 +2,8 @@ default:
 		go build
 install:
 		go build
-		sudo cp -Rf ./files/* /
+		sudo mkdir -p /etc/godoremi
+		sudo cp config.json /etc/godoremi
 		sudo ./godoremi -install
 test:
 		go test ./...

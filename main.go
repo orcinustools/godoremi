@@ -4,13 +4,11 @@ import (
 	"flag"
 	"net/http"
 	"os"
-
 	"log"
 	"os/signal"
 	"syscall"
 
 	"github.com/julienschmidt/httprouter"
-
 	"github.com/orcinustools/godoremi/src/daemon"
 	"github.com/orcinustools/godoremi/src/service"
 	"github.com/wejick/tego/config"
@@ -26,7 +24,7 @@ func Initialize() (err error) {
 
 	err = config.LoadConfigFromFile("/etc/godoremi/config.json")
 	if err != nil {
-		err = config.LoadConfigFromFile("./files/etc/godoremi/config.json")
+		err = config.LoadConfigFromFile("./config.json")
 	}
 
 	signal.Notify(signalChan,

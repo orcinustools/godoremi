@@ -1,13 +1,13 @@
 {
     "name": "godoremi",
-    "version": "0.0.1",
+    "version": "0.1.1",
     "description": "Golang daemon for docker remote API",
     "http": {
         "listen": "localhost",
-        "port": "8080"
+        "port": "4125"
     },
     "upstream": {
-        "unixSocket":{
+        "unixSocket": {
             "docker": {
                 "fileDescriptor": "/var/run/docker.sock"
             }
