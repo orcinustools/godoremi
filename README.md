@@ -27,7 +27,7 @@ Do not forget to give criticism and advices, clone and contribute! :)
     ```
     sudo systemctl status godoremi
     ```
-6. Browse to [http://localhost:8080/](http://localhost:8080/)
+6. Browse to [http://localhost:8080/](http://localhost:4125/)
 
 ### Available endpoint
 - **GET** `/` See the information of the docker
