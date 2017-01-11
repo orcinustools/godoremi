@@ -67,8 +67,18 @@ func main() {
 	router := httprouter.New()
 
 	router.GET("/", service.HTTPGetInfo)
+	router.GET("/version", service.HTTPGetVersion)
+	router.GET("/networks", service.HTTPGetNetworks)
+	router.GET("/networks/:id", service.HTTPGetInspectNetworks)
+	router.GET("/ping", service.HTTPGetPing)
 	router.GET("/images", service.HTTPGetImages)
+	router.GET("/images/search", service.HTTPGetSearchImage)
+	router.GET("/images/inspect/:name", service.HTTPGetInspectImage)
+	router.GET("/images/history/:name", service.HTTPGetHistoryImage)
 	router.GET("/containers", service.HTTPGetContainers)
+	router.GET("/events", service.HTTPGetEvents)
+	router.GET("/volumes", service.HTTPGetVolumes)
+	router.GET("/volumes/:name", service.HTTPGetInspectVolumes)
 
 	listenTo := config.Get().HTTP.Listen + ":" + config.Get().HTTP.Port
 	log.Fatal(http.ListenAndServe(listenTo, router))
