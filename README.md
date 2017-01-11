@@ -37,13 +37,16 @@ Do not forget to give criticism and advices, clone and contribute! :)
 - **GET** `/networks/:id` Inspect network
 - **GET** `/ping` Ping the docker server
 - **GET** `/events` Monitor the Docker's events
+
 #### Images
 - **GET** `/images` List all of the images 
 - **GET** `/images/search` Search images
 - **GET** `/images/inspect/:name` Inspect an image
 - **GET** `/images/history/:name` Display history an image
+
 #### Containers
 - **GET** `/containers` List all of the running containers
+
 #### Volumes
 - **GET** `/volumes` List all of the volumes
 - **GET** `/volumes/:name` Inspect an volume
