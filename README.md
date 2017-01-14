@@ -46,6 +46,16 @@ Do not forget to give criticism and advices, clone and contribute! :)
 
 #### Containers
 - **GET** `/containers` List all of the running containers
+- **POST** `/containers/create` Create a container
+- **POST** `/containers/start/:name` Start a container
+- **POST** `/containers/restart/:name` Restart a container
+- **POST** `/containers/rename/:name` Rename a container
+- **POST** `/containers/stop/:name` Stop a container
+- **POST** `/containers/kill/:name` Kill a container
+- **GET** `/containers/inspect/:name` Inspect a container
+- **GET** `/containers/top/:name` List processes running inside a container
+- **GET** `/containers/changes/:name` Inspect changes on a container’s filesystem
+- **GET** `/containers/stats/:name` Get container stats based on resource usage
 
 #### Volumes
 - **GET** `/volumes` List all of the volumes

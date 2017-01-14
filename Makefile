@@ -11,8 +11,7 @@ clean:
 		sudo rm $(DIR_SRV)/$(SRV_NAME)
 		sudo rm -rf $(DIR_CONF)
 
-install:
-		go build
+install: build
 		sudo mkdir -p $(DIR_CONF)
 		sudo cp config.json $(DIR_CONF)
 		sudo ./godoremi -install

@@ -71,12 +71,26 @@ func main() {
 	router.GET("/networks", service.HTTPGetNetworks)
 	router.GET("/networks/:id", service.HTTPGetInspectNetworks)
 	router.GET("/ping", service.HTTPGetPing)
+
 	router.GET("/images", service.HTTPGetImages)
 	router.GET("/images/search", service.HTTPGetSearchImage)
 	router.GET("/images/inspect/:name", service.HTTPGetInspectImage)
 	router.GET("/images/history/:name", service.HTTPGetHistoryImage)
+
 	router.GET("/containers", service.HTTPGetContainers)
+	router.POST("/containers/create", service.HTTPPostCreateContainers)
+	router.POST("/containers/start/:name", service.HTTPPostStartContainers)
+	router.POST("/containers/restart/:name", service.HTTPPostRestartContainers)
+	router.POST("/containers/rename/:name", service.HTTPPostRenameContainers)
+	router.POST("/containers/stop/:name", service.HTTPPostStopContainers)
+	router.POST("/containers/kill/:name", service.HTTPPostKillContainers)
+	router.GET("/containers/inspect/:name", service.HTTPGetInspectContainers)
+	router.GET("/containers/top/:name", service.HTTPGetTopContainers)
+	router.GET("/containers/changes/:name", service.HTTPGetChangesContainers)
+	router.GET("/containers/stats/:name", service.HTTPGetStatsContainers)
+
 	router.GET("/events", service.HTTPGetEvents)
+
 	router.GET("/volumes", service.HTTPGetVolumes)
 	router.GET("/volumes/:name", service.HTTPGetInspectVolumes)
 
