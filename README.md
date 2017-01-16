@@ -56,6 +56,10 @@ Do not forget to give criticism and advices, clone and contribute! :)
 - **GET** `/containers/top/:name` List processes running inside a container
 - **GET** `/containers/changes/:name` Inspect changes on a container’s filesystem
 - **GET** `/containers/stats/:name` Get container stats based on resource usage
+- **GET** `/containers/logs/:name` Get container logs
+- **GET** `/containers/export/:name` Export a container
+- **GET** `/containers/resize/:name` Resize a container TTY
+- **GET** `/containers/update/:name` Update a container
 
 #### Volumes
 - **GET** `/volumes` List all of the volumes
