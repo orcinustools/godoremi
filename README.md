@@ -39,7 +39,7 @@ Do not forget to give criticism and advices, clone and contribute! :)
 - **GET** `/events` Monitor the Docker's events
 
 #### Images
-- **GET** `/images` List all of the images 
+- **GET** `/images` List all of the images
 - **GET** `/images/search` Search images
 - **GET** `/images/inspect/:name` Inspect an image
 - **GET** `/images/history/:name` Display history an image
@@ -64,3 +64,6 @@ Do not forget to give criticism and advices, clone and contribute! :)
 #### Volumes
 - **GET** `/volumes` List all of the volumes
 - **GET** `/volumes/:name` Inspect an volume
+
+#### Services
+- **GET** `/services` List all of the services
