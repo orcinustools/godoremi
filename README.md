@@ -70,3 +70,6 @@ Do not forget to give criticism and advices, clone and contribute! :)
 
 #### Tasks
 - **GET** `/tasks` List all of the tasks
+
+#### Nodes
+- **GET** `/nodes` List all of the nodes
