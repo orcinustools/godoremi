@@ -1,0 +1,9 @@
+language: go
+go:
+  - 1.7.x
+  - master
+install:
+  - go get github.com/julienschmidt/httprouter
+  - go get github.com/wejick/tego/http
+  - go get github.com/wejick/tego/config
+  - go get github.com/takama/daemon

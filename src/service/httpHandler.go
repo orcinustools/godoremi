@@ -6,10 +6,10 @@ import (
 	"log"
 	"net"
 	"net/http"
+	"net/url"
 
 	"github.com/julienschmidt/httprouter"
 	tegoHttp "github.com/wejick/tego/http"
-	"net/url"
 )
 
 func dockerDial(network, addr string) (conn net.Conn, err error) {
@@ -474,7 +474,7 @@ func HTTPPostResizeContainer(writer http.ResponseWriter, r *http.Request, ps htt
 		panic(err)
 	}
 	m, _ := url.ParseQuery(u.RawQuery)
-	req, err := http.NewRequest("POST", "http://localhost/containers/" + ps.ByName("name") + "/resize?h="+m["h"][0]+"&w="+m["w"][0], nil)
+	req, err := http.NewRequest("POST", "http://localhost/containers/"+ps.ByName("name")+"/resize?h="+m["h"][0]+"&w="+m["w"][0], nil)
 	resp, err := client.Do(req)
 	if err != nil {
 		tegoHttp.ResponseJSONCode(writer, "Oops!. Something went wrong.", 500)
@@ -531,6 +531,23 @@ func HTTPGetInspectVolume(writer http.ResponseWriter, r *http.Request, ps httpro
 		Transport: tr,
 	}
 	resp, err := client.Get("http://localhost/volumes/" + ps.ByName("name"))
+	if err != nil {
+		tegoHttp.ResponseJSONCode(writer, "Oops!. Something went wrong.", 500)
+		log.Println(err)
+		return
+	}
+	body, err := ioutil.ReadAll(resp.Body)
+	tegoHttp.ResponsePlain(writer, string(body[:]), 400, "")
+}
+func HTTPGetServices(writer http.ResponseWriter, r *http.Request, ps httprouter.Params) {
+	writer.Header().Set("Content-Type", "application/json")
+	tr := &http.Transport{
+		Dial: dockerDial,
+	}
+	client := &http.Client{
+		Transport: tr,
+	}
+	resp, err := client.Get("http://localhost/services")
 	if err != nil {
 		tegoHttp.ResponseJSONCode(writer, "Oops!. Something went wrong.", 500)
 		log.Println(err)

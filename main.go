@@ -2,9 +2,9 @@ package main
 
 import (
 	"flag"
+	"log"
 	"net/http"
 	"os"
-	"log"
 	"os/signal"
 	"syscall"
 
@@ -97,6 +97,8 @@ func main() {
 
 	router.GET("/volumes", service.HTTPGetVolumes)
 	router.GET("/volumes/:name", service.HTTPGetInspectVolume)
+
+	router.GET("/services", service.HTTPGetServices)
 
 	listenTo := config.Get().HTTP.Listen + ":" + config.Get().HTTP.Port
 	log.Fatal(http.ListenAndServe(listenTo, router))
