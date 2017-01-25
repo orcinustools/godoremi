@@ -100,6 +100,8 @@ func main() {
 
 	router.GET("/services", service.HTTPGetServices)
 
+	router.GET("/tasks", service.HTTPGetTasks)
+
 	listenTo := config.Get().HTTP.Listen + ":" + config.Get().HTTP.Port
 	log.Fatal(http.ListenAndServe(listenTo, router))
 }

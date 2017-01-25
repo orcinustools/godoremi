@@ -67,3 +67,6 @@ Do not forget to give criticism and advices, clone and contribute! :)
 
 #### Services
 - **GET** `/services` List all of the services
+
+#### Tasks
+- **GET** `/tasks` List all of the tasks
