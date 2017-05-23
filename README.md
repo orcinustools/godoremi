@@ -2,6 +2,9 @@
 Still very simple but I hope it will continue to grow. join us and make this some code for fun.
 Do not forget to give criticism and advices, clone and contribute! :)
 
+### Docker API Support
+Godoremi can support docker API v1.24 or higher
+
 ### Build and run
 1. Get
     ```
@@ -73,3 +76,6 @@ Do not forget to give criticism and advices, clone and contribute! :)
 
 #### Nodes
 - **GET** `/nodes` List all of the nodes
+
+### Systems
+- **GET** `/system/usage` Get data usage information

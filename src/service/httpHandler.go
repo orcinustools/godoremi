@@ -590,3 +590,23 @@ func HTTPGetNodes(writer http.ResponseWriter, r *http.Request, ps httprouter.Par
 	body, err := ioutil.ReadAll(resp.Body)
 	tegoHttp.ResponsePlain(writer, string(body[:]), 400, "")
 }
+
+// Systems
+func HTTPGetSystemUsage(writer http.ResponseWriter, r *http.Request, ps httprouter.Params) {
+	writer.Header().Set("Content-Type", "application/json")
+	tr := &http.Transport{
+		Dial: dockerDial,
+	}
+	client := &http.Client{
+		Transport: tr,
+	}
+
+	resp, err := client.Get("http://localhost/system/df")
+	if err != nil {
+		tegoHttp.ResponseJSONCode(writer, "Oops!. Something went wrong.", 500)
+		log.Println(err)
+		return
+	}
+	body, err := ioutil.ReadAll(resp.Body)
+	tegoHttp.ResponsePlain(writer, string(body[:]), 400, "")
+}
